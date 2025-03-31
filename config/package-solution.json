@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "Acronym Rolodex",
+    "id": "a43a7e28-27f5-4f38-93cb-e724531a6d74",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.20.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Sharepoint List to Acronym Data Representation"
+      },
+      "longDescription": {
+        "default": "Sharepoint List to Acronym Data Representation"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "acronym-rolodex Feature",
+        "description": "The feature that activates elements of the acronym-rolodex solution.",
+        "id": "9f364b03-90c9-4468-a317-54f69b793e58",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/acronym-rolodex-v1.0.0.0.sppkg"
+  }
+}

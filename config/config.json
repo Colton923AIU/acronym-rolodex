@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "acronym-rolodex-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/acronymRolodex/AcronymRolodexWebPart.js",
+          "manifest": "./src/webparts/acronymRolodex/AcronymRolodexWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AcronymRolodexWebPartStrings": "lib/webparts/acronymRolodex/loc/{locale}.js"
+  }
+}

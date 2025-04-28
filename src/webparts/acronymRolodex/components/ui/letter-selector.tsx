@@ -1,44 +1,59 @@
 import * as React from "react";
-import { useTheme } from "../context/theme-context";
 
 interface LetterSelectorProps {
   letters: string[];
-  selectedLetter: string | null;
+  selectedLetter: string;
   onSelectLetter: (letter: string) => void;
 }
 
-export function LetterSelector({
-  letters = [],
+export const LetterSelector: React.FC<LetterSelectorProps> = ({
+  letters,
   selectedLetter,
   onSelectLetter,
-}: LetterSelectorProps) {
-  const { primaryColor, tertiaryColor } = useTheme();
-
+}) => {
+  // Sort and group letters and numbers
+  const numbers = letters.filter(char => /[0-9]/.test(char)).sort();
+  const alphas = letters.filter(char => /[A-Za-z]/.test(char)).sort();
+  
+  // All possible letters for complete alphabet
+  const fullAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  
   return (
-    <div
-      className="w-full h-full overflow-y-auto"
-      style={{ backgroundColor: tertiaryColor }}
-    >
-      <div className="flex flex-col">
-        {Array.isArray(letters) && letters.length > 0 ? (
-          letters.map((letter) => (
+    <div className="ar-filter-grid">
+      {/* Render numbers if there are any */}
+      {numbers.length > 0 && (
+        <>
+          <div className="ar-filter-label">Numbers</div>
+          {numbers.map(num => (
             <button
-              key={letter}
-              className="py-3 px-4 text-center text-lg font-medium hover:opacity-80 transition-colors"
-              style={{
-                backgroundColor:
-                  selectedLetter === letter ? primaryColor : "transparent",
-                color: selectedLetter === letter ? "#ffffff" : "inherit",
-              }}
-              onClick={() => onSelectLetter(letter)}
+              key={num}
+              className={`ar-filter-button ${selectedLetter === num ? 'selected' : ''}`}
+              onClick={() => onSelectLetter(num)}
+              aria-pressed={selectedLetter === num}
             >
-              {letter}
+              {num}
             </button>
-          ))
-        ) : (
-          <div className="p-4 text-center">No items</div>
-        )}
-      </div>
+          ))}
+          <div className="ar-filter-divider" />
+        </>
+      )}
+      
+      {/* Render letters - show all alphabet but disable unused letters */}
+      <div className="ar-filter-label">Letters</div>
+      {fullAlphabet.map(letter => {
+        const isAvailable = alphas.includes(letter);
+        return (
+          <button
+            key={letter}
+            className={`ar-filter-button ${selectedLetter === letter ? 'selected' : ''} ${!isAvailable ? 'disabled' : ''}`}
+            onClick={() => isAvailable && onSelectLetter(letter)}
+            disabled={!isAvailable}
+            aria-pressed={selectedLetter === letter}
+          >
+            {letter}
+          </button>
+        );
+      })}
     </div>
   );
-}
+};

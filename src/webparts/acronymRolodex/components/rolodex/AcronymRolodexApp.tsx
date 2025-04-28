@@ -1,12 +1,13 @@
 import * as React from "react";
-import type { AcronymRolodexProps, AcronymData } from "../types";
+import type { AcronymRolodexProps } from "../types";
 import { ThemeProvider } from "../context/theme-context";
 import { Alert, Spinner, Text, Button, FieldList } from "../ui";
 import { useSharePointData } from "../hooks/use-sharepoint-data";
-import { SlotMachineRolodex } from "./slot-machine-rolodex";
+// import { SlotMachineRolodex } from "./slot-machine-rolodex";
+const SlotMachineRolodex = React.lazy(() => import("./slot-machine-rolodex").then(module => ({ default: module.SlotMachineRolodex })));
 import "../../globals.css";
 
-export function AcronymRolodex({
+export function AcronymRolodexApp({
   data: initialData = [],
   primaryColor,
   secondaryColor,
@@ -97,16 +98,18 @@ export function AcronymRolodex({
   return (
     <div className="acronym-rolodex-app">
       <ThemeProvider theme={theme}>
-        <SlotMachineRolodex
-          data={data}
-          primaryColor={primaryColor}
-          secondaryColor={secondaryColor}
-          tertiaryColor={tertiaryColor}
-          className={className}
-          spService={spService}
-          config={config}
-        />
+        <React.Suspense fallback={<div>Loading Rolodex...</div>}>
+          <SlotMachineRolodex
+            data={data}
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
+            tertiaryColor={tertiaryColor}
+            className={className}
+            spService={spService}
+            config={config}
+          />
+        </React.Suspense>
       </ThemeProvider>
     </div>
   );
-}
+} 

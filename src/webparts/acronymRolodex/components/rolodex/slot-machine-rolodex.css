@@ -1,0 +1,440 @@
+/* Slot Machine Rolodex CSS */
+.slot-machine-rolodex {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: transparent;
+  border-radius: 12px;
+  box-shadow: inset 0 4px 16px rgba(0, 0, 0, 0.12);
+  max-height: 400px !important;
+  height: 400px !important;
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+}
+
+.rolodex-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.rolodex-columns {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  height: 100% !important;
+  min-height: 0 !important;
+  flex: 1 1 0%;
+}
+
+.column-container {
+  flex: 0 0 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  max-width: 100px;
+  height: 100% !important;
+  min-height: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Make the third column fill the rest */
+.acronyms-container {
+  flex: 1 1 0%;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make the second column (acronyms) a little wider */
+.rolodex-columns > .column-container:nth-child(2) {
+  max-width: 140px;
+  width: 140px;
+}
+
+/* Frame for the scroll container - limits visible area */
+.scroll-frame {
+  position: relative;
+  flex: 1 1 0%;
+  min-height: 0 !important;
+  height: 100% !important;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.scroll-container {
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  -ms-overflow-style: none;  /* Internet Explorer and Edge */
+  scrollbar-width: none;  /* Firefox */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Masked scroll for slot machine effect */
+.masked-scroll::before,
+.masked-scroll::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 40px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.masked-scroll::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0));
+}
+
+.masked-scroll::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255,255,255,0.9), rgba(255,255,255,0));
+}
+
+/* Slot machine navigation arrows */
+.slot-arrow {
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.2s;
+  user-select: none;
+}
+
+.slot-arrow:hover {
+  background-color: #e0e0e0;
+}
+
+.slot-arrow span {
+  font-size: 18px;
+  color: #666;
+}
+
+.slot-arrow-up {
+  border: none;
+}
+
+.slot-arrow-down {
+  border: none;
+}
+
+/* Very thin slot machine navigation arrows for first and second columns */
+.slot-arrow-thin {
+  height: 18px;
+  min-height: 18px;
+  max-height: 18px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  transition: background 0.15s;
+}
+.slot-arrow-thin:hover {
+  background: rgba(0,0,0,.01);
+}
+
+.slot-arrow-thin .chevron {
+  font-size: 13px;
+  color: var(--primary-color);
+  line-height: 1;
+  pointer-events: none;
+}
+.slot-arrow-thin.slot-arrow-up {
+  border: transparent;
+
+}
+.slot-arrow-thin.slot-arrow-down {
+  border: transparent;
+}
+
+/* Acronym frame - specific styling for the third column */
+.acronym-frame {
+  flex: 1 1 0%;
+  min-height: 0 !important;
+  height: 100% !important;
+  width:100% !important;
+  padding: 16px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.category-card,
+.letter-card {
+  padding: 16px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  scroll-snap-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.category-card.selected,
+.letter-card.selected {
+  background-color: #f0f3f8;
+}
+
+.acronym-card {
+  width: 90px;
+  min-width: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.acronym-card.selected {
+  border: 2.5px solid var(--primary-color, #8497b0);
+  background-color: rgba(132, 151, 176, 0.13);
+  box-shadow: 0 0 0 3px rgba(132, 151, 176, 0.12);
+  transition: border 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.acronyms-container .acronym-card {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  align-items: flex-start;
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.card-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+  word-break: break-word;
+  color: var(--primary-color);
+}
+
+.card-content {
+  font-size: 14px;
+  text-align: center;
+  color: #666;
+}
+
+/* Make the category header larger */
+.category-card .card-header {
+  font-size: 28px;
+}
+
+/* Make the letter header larger */
+.letter-card .card-header {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+/* Styling for acronym cards */
+.acronym-card .card-header {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.acronym-card .card-content {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  color: #555;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+
+.acronym-card .card-details {
+  font-size: 14px;
+  color: #777;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.card-tags {
+  margin-top: 8px;
+  text-align: center;
+}
+
+.no-acronyms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #999;
+  font-style: italic;
+  text-align: center;
+  padding: 0 16px;
+}
+
+/* Theme-aware styling */
+.slot-machine-rolodex.primary-theme .category-card.selected,
+.slot-machine-rolodex.primary-theme .letter-card.selected {
+  background-color: var(--primary-color-light, #d3dbe6);
+}
+
+.slot-machine-rolodex.primary-theme .acronym-card .card-header {
+  color: var(--primary-color, #8497b0);
+}
+
+.slot-machine-rolodex.primary-theme .slot-arrow:hover {
+  background-color: var(--primary-color-light, #d3dbe6);
+}
+
+.slot-machine-rolodex.primary-theme .indicator-dot.active {
+  background-color: var(--primary-color, #8497b0);
+}
+
+.slot-machine-rolodex.secondary-theme .category-card.selected,
+.slot-machine-rolodex.secondary-theme .letter-card.selected {
+  background-color: var(--secondary-color-light, #bfc7d1);
+}
+
+.slot-machine-rolodex.secondary-theme .acronym-card .card-header {
+  color: var(--secondary-color, #51647b);
+}
+
+.slot-machine-rolodex.secondary-theme .slot-arrow:hover {
+  background-color: var(--secondary-color-light, #bfc7d1);
+}
+
+.slot-machine-rolodex.secondary-theme .indicator-dot.active {
+  background-color: var(--secondary-color, #51647b);
+}
+
+/* Column header styling */
+.column-header {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #f9f9f9;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 0.5px;
+}
+
+/* Position indicator dots */
+.position-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.indicator-dot:hover {
+  transform: scale(1.3);
+}
+
+.indicator-dot.active {
+  background-color: var(--primary-color, #2196f3);
+}
+
+/* Category badge for details column */
+.category-badge {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 2px 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+/* Large text area for details */
+.details-large-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 16px 0 8px 0;
+  color: #222;
+  word-break: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .rolodex-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column-container {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .acronyms-container {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.rolodex-columns > .column-container:not(.acronyms-container) .acronym-card .card-header {
+  margin-bottom: 0 !important;
+}
+
+:root {
+  --primary-color: #8497b0;
+  --primary-color-light: #d3dbe6;
+  --secondary-color: #51647b;
+  --secondary-color-light: #bfc7d1;
+}

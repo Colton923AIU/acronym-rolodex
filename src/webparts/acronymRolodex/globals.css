@@ -1,0 +1,284 @@
+/* globals.css - Modernized styles for Acronym Rolodex */
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: system-ui, sans-serif;
+    background: #fff;
+    color: #222;
+  }
+  
+  /* Acronym Rolodex App Styles */
+  .acronym-rolodex-app {
+    max-width: 900px;
+    min-width: 320px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #333;
+    font-size: 14px;
+    overflow: hidden;
+  }
+  
+  .acronym-rolodex-app * {
+    box-sizing: border-box;
+  }
+  
+  /* Container */
+  .acronym-rolodex-app .ar-container {
+    background-color: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+  
+  /* Columns Layout */
+  .acronym-rolodex-app .ar-columns {
+    display: flex;
+    height: 500px;
+    background: #fff;
+    overflow: hidden;
+  }
+  
+  /* Column Headers */
+  .acronym-rolodex-app .ar-col-header {
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #f5f7fa;
+    border-bottom: 1px solid #e6e8eb;
+    color: #333;
+  }
+  
+  /* Filter Column */
+  .acronym-rolodex-app .ar-col-filter {
+    width: 80px;
+    min-width: 80px;
+    height: 100%;
+    background-color: #f9fafc;
+    border-right: 1px solid #e6e8eb;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  /* Modern Filter Grid */
+  .acronym-rolodex-app .ar-filter-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0;
+    gap: 6px;
+  }
+  
+  /* Modern Filter Button */
+  .acronym-rolodex-app .ar-filter-button {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a5568;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .acronym-rolodex-app .ar-filter-button:hover {
+    background-color: #edf2f7;
+    color: #2d3748;
+  }
+  
+  .acronym-rolodex-app .ar-filter-button.selected {
+    background-color: #3182ce;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Filter Section Divider */
+  .acronym-rolodex-app .ar-filter-divider {
+    width: 60%;
+    height: 1px;
+    background-color: #e6e8eb;
+    margin: 6px 0;
+  }
+  
+  /* Filter Section Label */
+  .acronym-rolodex-app .ar-filter-label {
+    font-size: 12px;
+    color: #718096;
+    margin: 8px 0 4px;
+  }
+  
+  /* Results Column */
+  .acronym-rolodex-app .ar-col-results {
+    width: 240px;
+    min-width: 240px;
+    height: 100%;
+    border-right: 1px solid #e6e8eb;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* Results List */
+  .acronym-rolodex-app .ar-col-results > div:last-child {
+    overflow-y: auto;
+    height: calc(100% - 49px); /* Subtract header height */
+  }
+  
+  /* Result Item */
+  .acronym-rolodex-app .ar-result-item {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f5;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  .acronym-rolodex-app .ar-result-item:hover {
+    background-color: #f7fafc;
+  }
+  
+  .acronym-rolodex-app .ar-result-item.selected {
+    background-color: #ebf4ff;
+    border-left: 3px solid #3182ce;
+  }
+  
+  .acronym-rolodex-app .ar-acronym {
+    font-size: 16px;
+    font-weight: 600;
+    color: #3182ce;
+    margin-bottom: 4px;
+  }
+  
+  .acronym-rolodex-app .ar-definition {
+    font-size: 13px;
+    color: #4a5568;
+    line-height: 1.5;
+  }
+  
+  /* Details Column */
+  .acronym-rolodex-app .ar-col-details {
+    flex: 1;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* Details Content */
+  .acronym-rolodex-app .ar-details-content {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100% - 49px); /* Subtract header height */
+  }
+  
+  .acronym-rolodex-app .ar-details-header {
+    margin-bottom: 24px;
+  }
+  
+  .acronym-rolodex-app .ar-details-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+  }
+  
+  .acronym-rolodex-app .ar-details-header h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #4a5568;
+  }
+  
+  .acronym-rolodex-app .ar-details-section {
+    margin-bottom: A20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #edf2f7;
+  }
+  
+  .acronym-rolodex-app .ar-details-section:last-child {
+    border-bottom: none;
+  }
+  
+  .acronym-rolodex-app .ar-details-section h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 12px;
+  }
+  
+  .acronym-rolodex-app .ar-details-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+  
+  /* Empty State */
+  .acronym-rolodex-app .ar-empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: #718096;
+    font-style: italic;
+  }
+  
+  /* Modern Scrollbar */
+  .acronym-rolodex-app .ar-col-filter,
+  .acronym-rolodex-app .ar-col-results > div:last-child,
+  .acronym-rolodex-app .ar-details-content {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 transparent;
+  }
+  
+  .acronym-rolodex-app .ar-col-filter::-webkit-scrollbar,
+  .acronym-rolodex-app .ar-col-results > div:last-child::-webkit-scrollbar,
+  .acronym-rolodex-app .ar-details-content::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .acronym-rolodex-app .ar-col-filter::-webkit-scrollbar-track,
+  .acronym-rolodex-app .ar-col-results > div:last-child::-webkit-scrollbar-track,
+  .acronym-rolodex-app .ar-details-content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .acronym-rolodex-app .ar-col-filter::-webkit-scrollbar-thumb,
+  .acronym-rolodex-app .ar-col-results > div:last-child::-webkit-scrollbar-thumb,
+  .acronym-rolodex-app .ar-details-content::-webkit-scrollbar-thumb {
+    background-color: #cbd5e0;
+    border-radius: 4px;
+  }
+  
+  /* For TagList component */
+  .acronym-rolodex-app .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .acronym-rolodex-app .tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: #edf2f7;
+    color: #4a5568;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .acronym-rolodex-app .tag:hover {
+    background-color: #e2e8f0;
+  }

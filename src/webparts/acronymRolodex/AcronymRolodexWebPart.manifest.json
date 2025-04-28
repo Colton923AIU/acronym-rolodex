@@ -3,26 +3,31 @@
   "id": "b79f243d-abb5-4770-9b1d-fcad918e30b3",
   "alias": "AcronymRolodexWebPart",
   "componentType": "WebPart",
-
-  // The "*" signifies that the version should be taken from the package.json
   "version": "*",
   "manifestVersion": 2,
-
-  // If true, the component can only be installed on sites where Custom Script is allowed.
-  // Components that allow authors to embed arbitrary script code should set this to true.
-  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
   "requiresCustomScript": false,
   "supportedHosts": ["SharePointWebPart", "TeamsPersonalApp", "TeamsTab", "SharePointFullPage"],
   "supportsThemeVariants": true,
 
   "preconfiguredEntries": [{
-    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
     "group": { "default": "Advanced" },
     "title": { "default": "AcronymRolodex" },
     "description": { "default": "AcronymRolodex description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "AcronymRolodex"
+      "description": "AcronymRolodex",
+      "fontFamily": "system-ui, -apple-system, sans-serif",
+      "headingFontFamily": "system-ui, -apple-system, sans-serif",
+      "monoFontFamily": "ui-monospace, monospace",
+      "baseFontSize": "16px",
+      "primaryColor": "#000000",
+      "secondaryColor": "#4A5568",
+      "accentColor": "#3182CE",
+      "textColor": "#1A202C",
+      "backgroundColor": "#FFFFFF",
+      "containerPadding": "2rem",
+      "borderRadius": "0.5rem"
     }
   }]
 }

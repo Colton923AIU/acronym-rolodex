@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Card, Section } from '../ui';
 
 interface DetailViewProps {
   children: React.ReactNode;
@@ -12,14 +13,14 @@ export function DetailView({
   isEmpty = false,
 }: DetailViewProps) {
   return (
-    <div className="flex-1 overflow-y-auto p-4 flex flex-col">
+    <Card className="flex-1 overflow-y-auto p-4 flex flex-col">
       {!isEmpty ? (
         <div className="space-y-4 flex-1">{children}</div>
       ) : (
-        <div className="h-full flex items-center justify-center">
+        <Section className="h-full flex items-center justify-center m-0 rounded-none bg-transparent p-0">
           {emptyState}
-        </div>
+        </Section>
       )}
-    </div>
+    </Card>
   );
 }

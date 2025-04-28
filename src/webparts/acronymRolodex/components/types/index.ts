@@ -1,3 +1,5 @@
+import { SharePointService, ISharePointServiceConfig } from "../../services/sharepoint.service";
+
 // import * as React from "react";
 // Common data interfaces
 export interface BaseItem {
@@ -27,4 +29,6 @@ export interface BaseRolodexProps extends ThemeOptions {
 // Specific props for the Acronym Rolodex
 export interface AcronymRolodexProps extends BaseRolodexProps {
   data: AcronymData[];
+  spService: SharePointService | null;
+  config: ISharePointServiceConfig;
 }
